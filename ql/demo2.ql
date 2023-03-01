@@ -3,6 +3,7 @@
  * @name log detection
  * @description test for log detection and 看看既定的例子对不对
  * @problem.severity warning
+ * @kind problem
  */
 
  import java
@@ -22,4 +23,4 @@
  }
  
  from IOStmt s
- select s,"this is the io stmt"
+ select s
