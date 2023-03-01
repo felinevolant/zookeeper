@@ -12,7 +12,6 @@ import semmle.code.java.dataflow.DataFlow
 import semmle.code.java.dataflow.TaintTracking
 import semmle.code.java.dataflow.FlowSources
 import semmle.code.java.StringFormat
-import DataFlow::PathGraph
 
 //判断是否是日志调用的谓词
 predicate isLogger(MethodAccess call) {
