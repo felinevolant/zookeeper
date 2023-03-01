@@ -1,9 +1,9 @@
 /**
  * @id java/examples/detect-log
  * @name log detection as local
- * @description test for log detection and 局部数据流分析的数据依赖
- * @problem.severity warning
+ * @description test for localflow
  * @kind problem
+ * @problem.severity warning
  */
 
 import java
@@ -52,7 +52,8 @@ class IsSource extends Expr{
 }
 
 //局部数据流分析
-from IsSink sink, IsSource source
+from IsSink sink, IsSource source,Stmt s
 where DataFlow::localFlow(DataFlow::exprNode(source), DataFlow::exprNode(sink)) and
-not sink=source
-select "This is prelogstmt",source.getEnclosingStmt() as prelog
+not sink=source and
+s=source.getEnclosingStmt()
+select s,"This is prelogstmt"
