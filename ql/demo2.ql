@@ -1,16 +1,15 @@
 /**
  * @id java/examples/detect-log
  * @name log detection
- * @description test for log detection 全局数据流分析的数据依赖
+ * @description test for log detection
  * @problem.severity warning
  * @kind path-problem
  */
 
 import java
 import semmle.code.java.ControlFlowGraph
-//import semmle.code.java.dataflow.DataFlow
-//import semmle.code.java.dataflow.FlowSources
-import semmle.code.java.dataflow.TaintTracking
+import semmle.code.java.dataflow.DataFlow
+import semmle.code.java.dataflow.FlowSources
 import DataFlow::PathGraph
 
 //判断是否是日志调用的谓词
@@ -18,17 +17,6 @@ predicate isLogger(MethodAccess call) {
     exists(Method method|call.getMethod() = method and
     method.getDeclaringType().hasQualifiedName("org.slf4j", "Logger") and 
     not method.getName().matches("%Enabled"))
-}
-
-//从youtube上面学到了一个新的islogger
-
-//限定数据流在同一个类里面
-predicate isAtTheSameClass(DataFlow::PathNode n1,DataFlow::PathNode n2) {
-  //地址相同
-  //exists(|n1.asExpr().getLocation()=n2.asExpr().getLocation())
-  exists(  | n1.getNode().asExpr().getLocation()=n2.getNode().asExpr().getLocation())
-  
-  
 }
 
 //isPLC用来储存日志前置代码
@@ -39,13 +27,10 @@ predicate isAtTheSameClass(DataFlow::PathNode n1,DataFlow::PathNode n2) {
 //使用全局数据流分析
 
 //数据流分析，用来完成数据依赖
-class DataDepConfig extends TaintTracking::Configuration {
+class DataDepConfig extends DataFlow::Configuration {
     DataDepConfig() {
-      this = "DataDependencies Configuration" 
-      
+      this = "DataDependencies Configuration"
     }
-
-    
   
     //数据源是数据依赖于sink的表达式
     override predicate isSource(DataFlow::Node source) {
@@ -75,8 +60,6 @@ class DataDepConfig extends TaintTracking::Configuration {
         arg.getUnderlyingExpr()=sink.asExpr()
       )
     } 
-
-
   }
 
 from DataFlow::PathNode src, DataFlow::PathNode sink,DataDepConfig config 
