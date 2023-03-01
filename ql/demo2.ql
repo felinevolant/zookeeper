@@ -3,7 +3,7 @@
  * @name log detection as local
  * @description test for log detection and 局部数据流分析的数据依赖
  * @problem.severity warning
- * @king problem
+ * @kind problem
  */
 
 import java
