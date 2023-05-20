@@ -53,15 +53,7 @@ jobs:
 
         # Details on CodeQL's query packs refer to : https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
         # queries: security-extended,security-and-qualitys
-        queries:
-          - name: prelog-detect with datadep
-            uses: ./ql/demo3.ql
-          - name: prelog-detect with datadep+ctrldep
-            uses: ./ql/demo6.ql
-          - name: prelog-detect with datadep+sideeffect
-            uses: ./ql/demo17.ql
-          - name: prelog-detect with datadep+ctrldep+sideeffect
-            uses: ./ql/demo18.ql
+        queries: ./ql/demo3.ql, ./ql/demo6.ql, ./ql/demo17.ql, ./ql/demo18.ql
             
 
 
