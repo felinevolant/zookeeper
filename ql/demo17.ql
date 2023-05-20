@@ -1,5 +1,5 @@
 /**
- * @id java/examples/detect-log
+ * @id java/examples/detect-prelog4dataDepSideEffect
  * @name pre-log detection dataDep + sideEffect
  * @description test for localflow dataDep and globalflow sideEffect
  * @kind problem
