@@ -1,5 +1,5 @@
 /**
- * @id java/examples/detect-log
+ * @id java/examples/detect-prelog4dataDepctrlDepSideEffect
  * @name pre-log detection dataDep+ctrlDep+sideEffect
  * @description test for localflow dataDep/ctrlDep and globalflow sideEffect
  * @problem.severity warning
