@@ -1,5 +1,5 @@
 /**
- * @id java/examples/detect-log
+ * @id java/examples/detect-prelog4dataDep
  * @name pre-log detection dataDep
  * @description test for localflow dataDep
  * @kind problem
