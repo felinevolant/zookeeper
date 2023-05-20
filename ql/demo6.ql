@@ -1,5 +1,5 @@
 /**
- * @id java/examples/detect-log
+ * @id java/examples/detect-prelog4dataDepctrlDep
  * @name pre-log detection dataDep+ctrlDep
  * @description test for localflow dataDep/ctrlDep
  * @problem.severity warning
